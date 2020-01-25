@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="AenneForUser" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1f-2e-a5T">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="profile icon" translatesAutoresizingMaskIntoConstraints="NO" id="mzg-uo-Nhz">
+                                <rect key="frame" x="24" y="5" width="72" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="LLe-2g-y9D"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDA-el-lSF">
+                                <rect key="frame" x="27" y="78" width="69" height="26"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="4jP-Qr-cuY"/>
+                            <constraint firstItem="mzg-uo-Nhz" firstAttribute="centerX" secondItem="ZDA-el-lSF" secondAttribute="centerX" constant="-1.5" id="C4p-bX-Vqx"/>
+                            <constraint firstItem="ZDA-el-lSF" firstAttribute="leading" secondItem="f1f-2e-a5T" secondAttribute="leading" constant="27" id="FVH-D6-Amw"/>
+                            <constraint firstItem="mzg-uo-Nhz" firstAttribute="leading" secondItem="f1f-2e-a5T" secondAttribute="leading" constant="24" id="brb-0t-fRE"/>
+                            <constraint firstAttribute="trailing" secondItem="ZDA-el-lSF" secondAttribute="trailing" constant="24" id="kBM-Sp-tZf"/>
+                            <constraint firstItem="mzg-uo-Nhz" firstAttribute="top" secondItem="f1f-2e-a5T" secondAttribute="top" constant="5" id="qsk-du-mJY"/>
+                            <constraint firstItem="ZDA-el-lSF" firstAttribute="top" secondItem="mzg-uo-Nhz" secondAttribute="bottom" constant="8" id="uYO-zX-BpI"/>
+                            <constraint firstAttribute="bottom" secondItem="ZDA-el-lSF" secondAttribute="bottom" constant="16" id="x5E-2k-d4w"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="f1f-2e-a5T" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Hjl-LU-Mbt"/>
+                <constraint firstAttribute="bottom" secondItem="f1f-2e-a5T" secondAttribute="bottom" id="TK7-qo-0rJ"/>
+                <constraint firstAttribute="trailing" secondItem="f1f-2e-a5T" secondAttribute="trailing" id="eL3-Y7-HS2"/>
+                <constraint firstItem="f1f-2e-a5T" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="p8o-3B-C6K"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="241" height="131"/>
+            <connections>
+                <outlet property="cellImg" destination="mzg-uo-Nhz" id="ENS-T0-RgT"/>
+                <outlet property="cellLabel" destination="ZDA-el-lSF" id="IeY-L8-qa4"/>
+                <outlet property="widthConstraint" destination="4jP-Qr-cuY" id="4jQ-jB-BJ1"/>
+            </connections>
+            <point key="canvasLocation" x="28.985507246376812" y="119.86607142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="profile icon" width="150" height="150"/>
+    </resources>
+</document>
