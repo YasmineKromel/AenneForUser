@@ -34,10 +34,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="paq-ER-aln">
-                                <rect key="frame" x="0.0" y="559.5" width="414" height="188.5"/>
+                                <rect key="frame" x="0.0" y="548.5" width="414" height="145.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="o52-4w-nFy">
-                                        <rect key="frame" x="40" y="0.0" width="334" height="188.5"/>
+                                        <rect key="frame" x="40" y="0.0" width="334" height="145.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scheduled trips" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wz-B6-td6">
                                                 <rect key="frame" x="93" y="0.0" width="148.5" height="24"/>
@@ -46,14 +46,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Gv-Mt-6xI">
-                                                <rect key="frame" x="8.5" y="44" width="317" height="121.5"/>
+                                                <rect key="frame" x="12.5" y="44" width="309" height="75.5"/>
                                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus erat turpis, cursus non consectetur sit amet, consectetur sit amet lectus. </string>
                                                 <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="16.200000762939453"/>
                                                 <color key="textColor" red="0.2274509804" green="0.2274509804" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="Loading" translatesAutoresizingMaskIntoConstraints="NO" id="uW7-01-bc0">
-                                                <rect key="frame" x="113.49999999999999" y="185.5" width="107.00000000000004" height="3"/>
+                                                <rect key="frame" x="60" y="139.5" width="214" height="6"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
@@ -64,7 +64,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNS-Qh-yvj">
-                                <rect key="frame" x="84" y="798" width="246" height="54"/>
+                                <rect key="frame" x="-39" y="744" width="492" height="108"/>
                                 <state key="normal" image="Get started"/>
                                 <connections>
                                     <action selector="StartedBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zpg-V3-bvg"/>
