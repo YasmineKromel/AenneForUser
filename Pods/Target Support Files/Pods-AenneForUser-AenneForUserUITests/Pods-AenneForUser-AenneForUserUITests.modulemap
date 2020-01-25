@@ -1,0 +1,6 @@
+framework module Pods_AenneForUser_AenneForUserUITests {
+  umbrella header "Pods-AenneForUser-AenneForUserUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

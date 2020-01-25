@@ -1,0 +1,6 @@
+framework module Pods_AenneForUser {
+  umbrella header "Pods-AenneForUser-umbrella.h"
+
+  export *
+  module * { export * }
+}
