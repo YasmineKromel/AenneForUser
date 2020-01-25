@@ -281,3 +281,24 @@ extension LongRegisterVController: UICollectionViewDelegate , UICollectionViewDa
            return cell
    }
 }
+
+
+class SelfiSizedCollectionView: UICollectionView {
+    
+    private lazy var heightConstrains: NSLayoutConstraint = {
+        let containt =  NSLayoutConstraint.init(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 200)
+          containt.isActive = true
+        return containt
+    }()
+    
+    
+    override var contentSize: CGSize {
+        didSet {
+            heightConstrains.constant = contentSize.height * zoomScale
+        }
+    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        addConstraint(heightConstrains)
+    }
+}

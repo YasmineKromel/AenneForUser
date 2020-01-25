@@ -794,9 +794,12 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rww-pF-woe">
                                                                         <rect key="frame" x="25" y="437" width="364" height="175"/>
                                                                         <subviews>
-                                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O56-ek-stv">
+                                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O56-ek-stv" customClass="SelfiSizedCollectionView" customModule="AenneForUser" customModuleProvider="target">
                                                                                 <rect key="frame" x="25" y="22" width="314" height="131"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" priority="239" constant="131" id="xk6-9b-X0f"/>
+                                                                                </constraints>
                                                                                 <viewLayoutGuide key="contentLayoutGuide" id="WNJ-l3-1yR"/>
                                                                                 <viewLayoutGuide key="frameLayoutGuide" id="ZcT-2M-wI6"/>
                                                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="wF7-be-ygh">
@@ -823,7 +826,6 @@
                                                                             <constraint firstItem="O56-ek-stv" firstAttribute="centerY" secondItem="Rww-pF-woe" secondAttribute="centerY" id="7Yy-zF-QDT"/>
                                                                             <constraint firstAttribute="trailing" secondItem="O56-ek-stv" secondAttribute="trailing" constant="25" id="ERb-46-cEN"/>
                                                                             <constraint firstItem="O56-ek-stv" firstAttribute="leading" secondItem="Rww-pF-woe" secondAttribute="leading" constant="25" id="bAS-w3-5l8"/>
-                                                                            <constraint firstAttribute="height" constant="175" id="fYP-Kp-0Ay"/>
                                                                             <constraint firstItem="O56-ek-stv" firstAttribute="top" secondItem="Rww-pF-woe" secondAttribute="top" constant="22" id="ono-gh-UCb"/>
                                                                         </constraints>
                                                                     </view>
