@@ -185,9 +185,6 @@ class LongRegisterVController: UIViewController {
     
     @IBOutlet weak var improveInfoStack: UIStackView!
     
-    
-    @IBOutlet weak var BottomStack: UIStackView!
-    
     var dataPassed = PassedData(name:"",mobile:"",pass:"")
     
     var BottomStackYAxis = 0
@@ -200,10 +197,9 @@ class LongRegisterVController: UIViewController {
         mobileTF.text = dataPassed.mobile
         passTF.text = dataPassed.pass
         
-       // BottomStackYAxis = BottomStack.frame.origin.y
+        
       //  collapsedViewHeight.constant = 0
         improveInfoStack.isHidden = true
-        
 
         
         collectionview.dataSource = self
@@ -285,4 +281,25 @@ extension LongRegisterVController: UICollectionViewDelegate , UICollectionViewDa
           // cell.CellGenderLbl.text = items[indexPath.item]
            return cell
    }
+}
+
+
+class SelfiSizedCollectionView: UICollectionView {
+    
+    private lazy var heightConstrains: NSLayoutConstraint = {
+        let containt =  NSLayoutConstraint.init(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 200)
+          containt.isActive = true
+        return containt
+    }()
+    
+    
+    override var contentSize: CGSize {
+        didSet {
+            heightConstrains.constant = contentSize.height * zoomScale
+        }
+    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        addConstraint(heightConstrains)
+    }
 }
