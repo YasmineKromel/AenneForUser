@@ -185,8 +185,12 @@ class LongRegisterVController: UIViewController {
     
     @IBOutlet weak var improveInfoStack: UIStackView!
     
+    
+    @IBOutlet weak var BottomStack: UIStackView!
+    
     var dataPassed = PassedData(name:"",mobile:"",pass:"")
     
+    var BottomStackYAxis = 0
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -196,9 +200,10 @@ class LongRegisterVController: UIViewController {
         mobileTF.text = dataPassed.mobile
         passTF.text = dataPassed.pass
         
-        
+       // BottomStackYAxis = BottomStack.frame.origin.y
       //  collapsedViewHeight.constant = 0
         improveInfoStack.isHidden = true
+        
 
         
         collectionview.dataSource = self
