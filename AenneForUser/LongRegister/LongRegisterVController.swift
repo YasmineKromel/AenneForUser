@@ -12,7 +12,7 @@ class LongRegisterVController: UIViewController {
     
     
     
-    @IBOutlet weak var collapsedViewHeight: NSLayoutConstraint!
+  //  @IBOutlet weak var collapsedViewHeight: NSLayoutConstraint!
     
     
     @IBOutlet weak var collectionview: UICollectionView!
@@ -185,10 +185,17 @@ class LongRegisterVController: UIViewController {
     
     @IBOutlet weak var improveInfoStack: UIStackView!
     
+    //Stacks
+    
+    @IBOutlet weak var disabilityCollectionStack: UIStackView!
+    
+    
     var dataPassed = PassedData(name:"",mobile:"",pass:"")
     
-    var BottomStackYAxis = 0
-    // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //var BottomStackYAxis = 0
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -200,25 +207,67 @@ class LongRegisterVController: UIViewController {
         
       //  collapsedViewHeight.constant = 0
         improveInfoStack.isHidden = true
+        //disabilityCollectionStack.isHidden = true
+        collectionview.isHidden = true
+        disabledCollection.isHidden = true
+        cityCollection.isHidden = true
+        areaCollection.isHidden = true
+        genderCollection.isHidden = true
+        
+        
 
+        // collections
+        disabledCollection.dataSource = self
+        disabledCollection.delegate = self
         
         collectionview.dataSource = self
         collectionview.delegate = self
         
+        cityCollection.dataSource = self
+        cityCollection.delegate = self
+        
+        areaCollection.dataSource = self
+        areaCollection.delegate = self
+        
+        genderCollection.dataSource = self
+        genderCollection.delegate = self
+        
+        
+        
         //register cell
         let nibcell = UINib(nibName: "CollectionViewCell", bundle: nil)
         collectionview.register(nibcell, forCellWithReuseIdentifier: "CollectionViewCell")
+        cityCollection.register(nibcell, forCellWithReuseIdentifier: "CollectionViewCell")
+               
+        areaCollection.register(nibcell, forCellWithReuseIdentifier: "CollectionViewCell")
         
+        disabledCollection.register(
+            nibcell, forCellWithReuseIdentifier: "CollectionViewCell")
         
+        genderCollection.register(nibcell, forCellWithReuseIdentifier: "CollectionViewCell")
+                      
+               
+        
+         // call getDisablity api
         APIsCall.GetDisablities(self) {
               
-            self.ResizeHeightOfCollectionView()
+        //    self.ResizeHeightOfCollectionView()
             self.collectionview.reloadData()
         }
+        APIsCall.GetCities {
+            self.cityCollection.reloadData()
+        }
+      
         
         
-        
+        // call gender api
+        APIsCall.GetGender {
+            self.genderCollection.reloadData()
+        }
+
+
     }
+    
     
     @IBAction func improveBtnClicked(_ sender: UIButton) {
         UIView.animate(withDuration: 1) {
@@ -228,6 +277,34 @@ class LongRegisterVController: UIViewController {
         }
     }
     
+    @IBAction func DisabilityBtnClicked(_ sender: UIButton) {
+        
+       //  disabilityCollectionStack.isHidden = false
+        collectionview.isHidden = false
+        
+    }
+    
+    @IBAction func cityBtnClicked(_ sender: UIButton) {
+        
+        cityCollection.isHidden = false
+    }
+    @IBAction func disabledBtnClicked(_ sender: UIButton) {
+        disabledCollection.isHidden = false
+    }
+    
+    
+    
+    @IBAction func genderBtnClicked(_ sender: UIButton) {
+        genderCollection.isHidden = false
+    }
+    
+    
+    @IBAction func areaBtnClicked(_ sender: Any) {
+        areaCollection.isHidden = false
+    }
+    
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
          navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -235,18 +312,18 @@ class LongRegisterVController: UIViewController {
     
    override func viewDidAppear(_ animated: Bool) {
            scroll.delegate = self
-            scroll.contentSize = CGSize.init(width: self.view.frame.width, height: self.view.frame.height*3)
+           // scroll.contentSize = CGSize.init(width: self.view.frame.width, height: self.view.frame.height*3)
              scroll.isScrollEnabled = true    }
 
     
-    func ResizeHeightOfCollectionView()
-    {
-       if let flowLayout = collectionview.collectionViewLayout as? UICollectionViewFlowLayout {
-        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
-       }
-        
-    }
+//    func ResizeHeightOfCollectionView()
+//    {
+//       if let flowLayout = collectionview.collectionViewLayout as? UICollectionViewFlowLayout {
+//        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+//        flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
+//       }
+//        
+//    }
     /*
     // MARK: - Navigation
 
@@ -262,24 +339,65 @@ class LongRegisterVController: UIViewController {
 extension LongRegisterVController: UICollectionViewDelegate , UICollectionViewDataSource
    {
     
-        func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int{
         return 1
         }
    
        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return APIsCall.disablity_types.count
+        
+        switch collectionView {
+        case disabledCollection :
+            return APIsCall.disabledItems.count
+        case collectionView :
+            return APIsCall.disablity_types.count
+        case cityCollection :
+            return APIsCall.CitiesItems.count
+        case areaCollection :
+            return APIsCall.AreaItems.count
+        case genderCollection :
+            return APIsCall.GenderItems.count
+        default:
+            return 1
+        }
+        
        }
     
       
    
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"CollectionViewCell" , for: indexPath) as!CollectionViewCell
+        
+          switch collectionView {
+          case disabledCollection :
+            //cell.cellLabel.text = APIsCall.disabledItems[indexPath.row]
+              return cell
+          case collectionView :
+            cell.cellLabel.text = APIsCall.disablity_types[indexPath.row].disability_Type_Name
+              return cell
+            
+          case cityCollection :
+            cell.cellLabel.text = APIsCall.CitiesItems[indexPath.row].city_Name
+            APIsCall.GetAreaByCityId(CityId: APIsCall.CitiesItems[indexPath.row].city_Id) {
+                self.areaCollection.reloadData()
+            }
+              return cell
+             
+          case areaCollection :
+            cell.cellLabel.text = APIsCall.AreaItems[indexPath.row].area_Name
+            return cell
+          case genderCollection :
+            cell.cellLabel.text = APIsCall.GenderItems[indexPath.row].gender_Name
+              return cell
+          default:
+              return cell
+          }
    
-        cell.cellLabel.text = APIsCall.disablity_types[indexPath.row].disability_Type_Name
+        
         //cell.img.image = UIImage(named: APIsCall.disablity_type[indexPath.item])
    
           // cell.CellGenderLbl.text = items[indexPath.item]
-           return cell
+         
    }
 }
 

@@ -97,7 +97,9 @@ class APIsCall
        // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         static var GetCitiesProvider = MoyaProvider<GetCityEndPoint>()
-        static func GetCities()
+        static var CitiesItems:[CityResponse]=[]
+    
+    static func GetCities(completion:@escaping()-> Void)
         {
             GetCitiesProvider.request(.City) { (result) in
                 switch result
@@ -110,7 +112,9 @@ class APIsCall
                         do
                            {
                             let json = try JSONDecoder().decode([CityResponse].self, from: response.data)
-                               print (json)
+                            CitiesItems = json
+                            completion()
+                              // print (json)
                             }
                        catch(let error){
                                print(error)
@@ -123,8 +127,10 @@ class APIsCall
          // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         static var GetGenderProvider = MoyaProvider<GetGenderEndPoint>()
+        static var GenderItems:[gender] = []
+    
         
-         static func GetGender()
+         static func GetGender(completion: @escaping () ->Void)
            {
             GetGenderProvider.request(.Gender) { (result) in
                    switch result
@@ -137,7 +143,9 @@ class APIsCall
                            do
                               {
                                let json = try JSONDecoder().decode([gender].self, from: response.data)
-                                  print (json)
+                                GenderItems = json
+                                completion()
+                                  //print (json)
                                }
                           catch(let error){
                                   print(error)
@@ -151,9 +159,10 @@ class APIsCall
       // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
       static  var GetAreaProvider = MoyaProvider<GetAreaEndPoint>()
-      static  func GetAreaByCityId(CityId:Int)
+      static var AreaItems:[Area] = []
+      static  func GetAreaByCityId(CityId:Int,completion: @escaping () ->Void )
         {
-            GetAreaProvider.request(.GetArea(cityId: CityId)) { (result) in
+            GetAreaProvider.request(.GetArea(cityId: CityId )) { (result) in
                 switch result
                 {
                     case .failure(let error):
@@ -164,7 +173,9 @@ class APIsCall
                         do
                            {
                             let json = try JSONDecoder().decode([Area].self, from: response.data)
-                               print (json)
+                              AreaItems = json
+                            completion()
+                            //print (json)
                             }
                        catch(let error){
                                print(error)
@@ -175,5 +186,9 @@ class APIsCall
             }
             
         }
+    
+    // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+        static var disabledItems = ["I am the Disabled":0 , "I am Not the Disabled":1]
         
 }

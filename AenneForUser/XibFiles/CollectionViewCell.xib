@@ -20,13 +20,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="profile icon" translatesAutoresizingMaskIntoConstraints="NO" id="mzg-uo-Nhz">
-                                <rect key="frame" x="24" y="5" width="72" height="65"/>
+                                <rect key="frame" x="24" y="5" width="69" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="LLe-2g-y9D"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDA-el-lSF">
-                                <rect key="frame" x="27" y="78" width="69" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZDA-el-lSF">
+                                <rect key="frame" x="16" y="78" width="88" height="26"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -36,9 +36,9 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="4jP-Qr-cuY"/>
                             <constraint firstItem="mzg-uo-Nhz" firstAttribute="centerX" secondItem="ZDA-el-lSF" secondAttribute="centerX" constant="-1.5" id="C4p-bX-Vqx"/>
-                            <constraint firstItem="ZDA-el-lSF" firstAttribute="leading" secondItem="f1f-2e-a5T" secondAttribute="leading" constant="27" id="FVH-D6-Amw"/>
+                            <constraint firstItem="ZDA-el-lSF" firstAttribute="leading" secondItem="f1f-2e-a5T" secondAttribute="leading" constant="16" id="FVH-D6-Amw"/>
                             <constraint firstItem="mzg-uo-Nhz" firstAttribute="leading" secondItem="f1f-2e-a5T" secondAttribute="leading" constant="24" id="brb-0t-fRE"/>
-                            <constraint firstAttribute="trailing" secondItem="ZDA-el-lSF" secondAttribute="trailing" constant="24" id="kBM-Sp-tZf"/>
+                            <constraint firstAttribute="trailing" secondItem="ZDA-el-lSF" secondAttribute="trailing" constant="16" id="kBM-Sp-tZf"/>
                             <constraint firstItem="mzg-uo-Nhz" firstAttribute="top" secondItem="f1f-2e-a5T" secondAttribute="top" constant="5" id="qsk-du-mJY"/>
                             <constraint firstItem="ZDA-el-lSF" firstAttribute="top" secondItem="mzg-uo-Nhz" secondAttribute="bottom" constant="8" id="uYO-zX-BpI"/>
                             <constraint firstAttribute="bottom" secondItem="ZDA-el-lSF" secondAttribute="bottom" constant="16" id="x5E-2k-d4w"/>
